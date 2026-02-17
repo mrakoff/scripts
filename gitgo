@@ -1,13 +1,14 @@
 #!/bin/bash
 
-
 git add $PWD
 git commit -m "$1"
 git push
 git status
 
-if [$? == 0]; then
-	echo "\033[32gitgo executed successfully with a commit "$message" :)\033[0m"
+if [ $? = '0' ]; then
+	echo $'\e[1;32m gitgo executed successfully :) \e[0m'
+	exit 0
 else
-	echo "\033[31gitgo failed\033[0m"
+	echo $'\e[1;31m gitgo failed :( \e[0m'
+	exit 1
 fi
